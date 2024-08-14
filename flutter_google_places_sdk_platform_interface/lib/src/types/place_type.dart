@@ -1,5 +1,3 @@
-import 'package:flutter/foundation.dart';
-
 /// Available types for a [Place]
 ///
 /// Ref: https://developers.google.com/maps/documentation/places/android-sdk/supported_types
@@ -143,8 +141,7 @@ enum PlaceType {
   TRAVEL_AGENCY,
   UNIVERSITY,
   VETERINARY_CARE,
-  ZOO
-  ;
+  ZOO;
 
   factory PlaceType.fromJson(String name) {
     name = name.toLowerCase();
@@ -158,8 +155,7 @@ enum PlaceType {
 }
 
 final placeTypeValuesMap = {
-  for (final placeType in PlaceType.values)
-    describeEnum(placeType): placeType
+  for (final placeType in PlaceType.values) placeType.name: placeType
 };
 
 extension PlaceTypeDescriptor on PlaceType {
