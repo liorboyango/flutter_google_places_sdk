@@ -20,9 +20,6 @@ import 'package:google_maps/google_maps_places.dart'
 import 'package:google_maps/google_maps_places.dart' as places;
 import 'package:web/web.dart' as web;
 
-@JS('initMap')
-external set _initMap(void Function() f);
-
 /// Web implementation plugin for flutter google places sdk
 class FlutterGooglePlacesSdkWebPlugin extends FlutterGooglePlacesSdkPlatform {
   /// Register the plugin with the web implementation.
@@ -60,7 +57,7 @@ class FlutterGooglePlacesSdkWebPlugin extends FlutterGooglePlacesSdkPlatform {
     final completer = Completer();
     _completer = completer;
 
-    _initMap = allowInterop(_doInit);
+    _doInit();
 
     web.Element? scriptExist =
         web.window.document.querySelector('#$_SCRIPT_ID');
